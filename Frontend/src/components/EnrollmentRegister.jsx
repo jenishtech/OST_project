@@ -7,19 +7,13 @@ import '../styles/enrollment.css';
 function EnrollmentRegister() {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    programId: '',
-    childName: '',
-    age: '',
-    parentName: '',
-    email: '',
-    emergencyContact: '',
-    gender: '',
-    primaryLanguage: '',
-    familyIncome: '',
-    householdVehicle: ''
-  });
   const [programs, setPrograms] = useState([]);
+  const [selectedPrograms, setSelectedPrograms] = useState([]); // multiple
+  const [formData, setFormData] = useState({
+    childName: '', age: '', parentName: '', email: '',
+    emergencyContact: '', gender: '', primaryLanguage: '',
+    familyIncome: '', householdVehicle: ''
+  });
   const [error, setError] = useState('');
 
   useEffect(() => {
@@ -28,16 +22,20 @@ function EnrollmentRegister() {
       .catch(err => console.log(err));
   }, [i18n.language]);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-    if (name === 'programId' && value) setError(''); // Clear error if program is selected
+  const handleCheckboxChange = (programId) => {
+    setSelectedPrograms(prev =>
+      prev.includes(programId)
+        ? prev.filter(id => id !== programId)
+        : [...prev, programId]
+    );
+    setError('');
   };
 
-  // Helper to wrap multilanguage fields
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
   const wrapMultiLang = (value) => ({
     en: i18n.language === 'en' ? value : '',
     es: i18n.language === 'es' ? value : ''
@@ -45,20 +43,24 @@ function EnrollmentRegister() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!formData.programId) {
+    if (selectedPrograms.length === 0) {
       setError(t('please_select_program'));
       return;
     }
+
     const payload = {
-      ...formData,
+      programIds: selectedPrograms,
       childName: wrapMultiLang(formData.childName),
+      age: formData.age,
       parentName: wrapMultiLang(formData.parentName),
+      email: formData.email,
       emergencyContact: wrapMultiLang(formData.emergencyContact),
       gender: wrapMultiLang(formData.gender),
       primaryLanguage: wrapMultiLang(formData.primaryLanguage),
       familyIncome: wrapMultiLang(formData.familyIncome),
       householdVehicle: wrapMultiLang(formData.householdVehicle)
     };
+
     axios.post('http://localhost:5000/api/register', payload)
       .then(res => navigate('/enrollment/status', { state: { registrationId: res.data._id } }))
       .catch(err => {
@@ -71,7 +73,7 @@ function EnrollmentRegister() {
     <div className="enrollment-container">
       <div className="header">
         <span>Logo</span>
-        <select className="language" onChange={(e) => i18n.changeLanguage(e.target.value)} value={i18n.language}>
+        <select onChange={(e) => i18n.changeLanguage(e.target.value)} value={i18n.language}>
           <option value="en">EN</option>
           <option value="es">ES</option>
         </select>
@@ -82,11 +84,9 @@ function EnrollmentRegister() {
         {programs.map(program => (
           <label key={program._id}>
             <input
-              type="radio"
-              name="programId"
-              value={program._id}
-              checked={formData.programId === program._id}
-              onChange={handleChange}
+              type="checkbox"
+              checked={selectedPrograms.includes(program._id)}
+              onChange={() => handleCheckboxChange(program._id)}
             /> {program.name}
           </label>
         ))}
@@ -96,23 +96,15 @@ function EnrollmentRegister() {
       <div className="step">
         <h4>{t('your_information')}</h4>
         <form onSubmit={handleSubmit}>
-          <input type="text" name="childName" placeholder={t('child_name')} onChange={handleChange} className="input-field" />
-          <input type="text" name="age" placeholder={t('age')} onChange={handleChange} className="input-field" />
-          <input type="text" name="parentName" placeholder={t('parent_name')} onChange={handleChange} className="input-field" />
+          <input name="childName" placeholder={t('child_name')} onChange={handleChange} className="input-field" />
+          <input name="age" placeholder={t('age')} onChange={handleChange} className="input-field" />
+          <input name="parentName" placeholder={t('parent_name')} onChange={handleChange} className="input-field" />
           <input type="email" name="email" placeholder={t('parent_email')} onChange={handleChange} className="input-field" />
-          <input type="text" name="emergencyContact" placeholder={t('emergency_contact')} onChange={handleChange} className="input-field" />
-          <select name="gender" onChange={handleChange} className="input-field">
-            <option value="">{t('gender')}</option>
-            <option value="Male">{t('gender') === 'Gender' ? 'Male' : 'Masculino'}</option>
-            <option value="Female">{t('gender') === 'Gender' ? 'Female' : 'Femenino'}</option>
-          </select>
-          <input type="text" name="primaryLanguage" placeholder={t('primary_language')} onChange={handleChange} className="input-field" />
-          <input type="text" name="familyIncome" placeholder={t('family_income')} onChange={handleChange} className="input-field" />
-          <select name="householdVehicle" onChange={handleChange} className="input-field">
-            <option value="">{t('household_vehicle')}</option>
-            <option value="Yes">{t('household_vehicle') === 'Household Vehicle' ? 'Yes' : 'Sí'}</option>
-            <option value="No">{t('household_vehicle') === 'Household Vehicle' ? 'No' : 'No'}</option>
-          </select>
+          <input name="emergencyContact" placeholder={t('emergency_contact')} onChange={handleChange} className="input-field" />
+          <input name="primaryLanguage" placeholder={t('primary_language')} onChange={handleChange} className="input-field" />
+          <input name="familyIncome" placeholder={t('family_income')} onChange={handleChange} className="input-field" />
+          <input name="gender" placeholder={t('gender')} onChange={handleChange} className="input-field" />
+          <input name="householdVehicle" placeholder={t('household_vehicle')} onChange={handleChange} className="input-field" />
           <button type="submit" className="submit-btn">{t('submit')}</button>
         </form>
         {error && <p className="error">{error}</p>}

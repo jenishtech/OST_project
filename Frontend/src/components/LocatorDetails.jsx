@@ -27,13 +27,13 @@ function LocatorDetails() {
         </select>
       </div>
       <h3>{program.name}</h3>
-      <p>{t('description')}: {program.description}</p>
-      <p>{t('age_group')}: {program.ageGroup}</p>
-      <p>{t('location')}: {program.location}</p>
-      <p>{t('duration')}: {program.duration}</p>
-      <p>{t('schedule')}: {program.schedule}</p>
-      <p>{t('eligibility')}: {program.eligibility}</p>
-      <p>{t('contact')}: {program.contact}</p>
+      <p> <span className='dl-span'>{t('description')}: </span> {program.description}</p>
+      <p> <span className='dl-span'>{t('age_group')}: </span> {program.ageGroup}</p>
+      <p> <span className='dl-span'>{t('location')}:</span> {program.location}</p>
+      <p> <span className='dl-span'>{t('duration')}: </span> {program.duration}</p>
+      <p> <span className='dl-span'>{t('schedule')}:</span> {program.schedule}</p>
+      <p> <span className='dl-span'>{t('eligibility')}:</span> {program.eligibility}</p>
+      <p> <span className='dl-span'>{t('contact')}:</span> {program.contact}</p>
       <Link to="/enrollment" className="register-btn">{t('register_now')}</Link>
       <Link to="/locator" className="back-btn">{t('back_to_search')}</Link>
     </div>

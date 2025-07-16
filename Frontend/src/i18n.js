@@ -39,7 +39,8 @@ i18n.use(initReactI18next).init({
         'loading': 'Loading...',
         'registration_message': '{{childName}} status is {{status}}',
         'please_select_program': 'Please select a program before submitting.',
-        'registration_failed': 'Registration failed. Please try again.'
+        'registration_failed': 'Registration failed. Please try again.',
+        'selected_programs': 'Selected Programs' // New key
       }
     },
     es: {
@@ -78,7 +79,8 @@ i18n.use(initReactI18next).init({
         'loading': 'Cargando...',
         'registration_message': 'El estado de {{childName}} es {{status}}',
         'please_select_program': 'Por favor, selecciona un programa antes de enviar.',
-        'registration_failed': 'El registro falló. Por favor, intenta de nuevo.'
+        'registration_failed': 'El registro falló. Por favor, intenta de nuevo.',
+        'selected_programs': 'Programas Seleccionados' // New key
       }
     }
   },

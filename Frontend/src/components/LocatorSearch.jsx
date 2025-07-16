@@ -70,11 +70,13 @@ function LocatorSearch() {
         {programs.map(program => (
           <div key={program._id} className="program-card">
             <h3>{program.name}</h3>
-            <p>{t('age_group')}: {program.ageGroup}</p>
-            <p>{t('location')}: {program.location}</p>
-            <p>{t('duration')}: {program.duration}</p>
-            <p>{t('schedule')}: {program.schedule}</p>
+            <p> <span className='p-lable'>{t('age_group')}:</span> {program.ageGroup}</p>
+            <p> <span className='p-lable'>{t('location')}:</span> {program.location}</p>
+            <p> <span className='p-lable'> {t('duration')}: </span> {program.duration}</p>
+            <p> <span className='p-lable'>{t('schedule')}:</span> {program.schedule}</p>
+
             <Link to={`/locator/details/${program._id}`} className="view-details">{t('view_details')}</Link>
+
           </div>
         ))}
       </div>

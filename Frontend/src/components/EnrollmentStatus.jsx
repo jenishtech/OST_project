@@ -11,46 +11,38 @@ function EnrollmentStatus() {
 
   useEffect(() => {
     if (state?.registrationId) {
-      axios.get(`http://localhost:5000/api/status/${state.registrationId}`, {
-        params: { lang: i18n.language }
-      })
+      axios.get(`http://localhost:5000/api/status/${state.registrationId}`, { params: { lang: i18n.language } })
         .then(res => setRegistration(res.data))
         .catch(err => console.log(err));
     }
   }, [state, i18n.language]);
 
+  const getField = (field) =>
+    field && typeof field === 'object' ? (field[i18n.language] || field.en || '') : field || '';
+
   if (!registration) return <div>{t('loading')}</div>;
-
-  const getField = (field) => {
-    if (field && typeof field === 'object') {
-      return field[i18n.language] || field.en || '';
-    }
-    return field || '';
-  };
-
-  const statusMap = {
-    Confirmed: t('confirmed') || 'Confirmed',
-    Waitlisted: t('waitlisted') || 'Waitlisted',
-    Rejected: t('rejected') || 'Rejected'
-  };
 
   return (
     <div className="enrollment-container">
       <div className="header">
         <span>Logo</span>
-        <select className="language" onChange={(e) => i18n.changeLanguage(e.target.value)} value={i18n.language}>
+        <select onChange={(e) => i18n.changeLanguage(e.target.value)} value={i18n.language}>
           <option value="en">EN</option>
           <option value="es">ES</option>
         </select>
       </div>
       <h3>{t('status')}</h3>
-      <p className={`status-${registration.status.toLowerCase()}`}>
-        {registration.status === 'Confirmed' && '✅'} {registration.status === 'Waitlisted' && '⚠️'} {registration.status === 'Rejected' && '❌'}
-        {t('registration_message', {
-          childName: getField(registration.childName),
-          status: statusMap[registration.status]
-        })}
-      </p>
+      <ul>
+        {registration.programs.map(p => (
+          <li key={p.programId._id}>
+            {getField(p.programId.name)} — 
+            {p.status === 'Confirmed' && '✅'}
+            {p.status === 'Waitlisted' && '⚠️'}
+            {p.status === 'Rejected' && '❌'}
+            {t('registration_message', { childName: getField(registration.childName), status: p.status })}
+          </li>
+        ))}
+      </ul>
       <p className="note">*{t('status_note')}</p>
       <Link to="/enrollment" className="back-btn">{t('back_to_programs')}</Link>
     </div>
@@ -58,5 +50,3 @@ function EnrollmentStatus() {
 }
 
 export default EnrollmentStatus;
-
-
