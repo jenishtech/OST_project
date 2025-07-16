@@ -1,0 +1,89 @@
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+
+i18n.use(initReactI18next).init({
+  resources: {
+    en: {
+      translation: {
+        'find_programs': 'Find OST Programs',
+        'search_placeholder': 'Search programs (e.g., "art camp near me")',
+        'view_details': 'View Details',
+        'register_now': 'Register Now',
+        'back_to_search': 'Back to Search',
+        'register_programs': 'Register for OST Programs',
+        'select_programs': 'Select Programs',
+        'your_information': 'Your Information',
+        'child_name': 'Child Name',
+        'age': 'Age',
+        'parent_name': 'Parent Name',
+        'parent_email': 'Email',
+        'emergency_contact': 'Emergency Contact',
+        'gender': 'Gender',
+        'primary_language': 'Primary Language',
+        'family_income': 'Family Income',
+        'household_vehicle': 'Household Vehicle',
+        'submit': 'Submit',
+        'status': 'Status',
+        'status_note': 'Status updates appear within 2 seconds',
+        'back_to_programs': 'Back to Programs',
+        'summer_art_camp': 'Summer Art Camp',
+        'robotics_club': 'Robotics Club',
+        'leadership_program': 'Leadership Program',
+        'description': 'Description',
+        'age_group': 'Age Group',
+        'location': 'Location',
+        'duration': 'Duration',
+        'schedule': 'Schedule',
+        'eligibility': 'Eligibility',
+        'contact': 'Contact',
+        'loading': 'Loading...',
+        'registration_message': '{{childName}} status is {{status}}',
+        'please_select_program': 'Please select a program before submitting.',
+        'registration_failed': 'Registration failed. Please try again.'
+      }
+    },
+    es: {
+      translation: {
+        'find_programs': 'Encuentra Programas OST',
+        'search_placeholder': 'Busca programas (e.g., "campamento de arte")',
+        'view_details': 'Ver Detalles',
+        'register_now': 'Regístrate Ahora',
+        'back_to_search': 'Volver a Buscar',
+        'register_programs': 'Regístrate para Programas OST',
+        'select_programs': 'Selecciona Programas',
+        'your_information': 'Tu Información',
+        'child_name': 'Nombre del Niño',
+        'age': 'Edad',
+        'parent_name': 'Nombre del Padre',
+        'parent_email': 'Correo',
+        'emergency_contact': 'Contacto de Emergencia',
+        'gender': 'Género',
+        'primary_language': 'Idioma Principal',
+        'family_income': 'Ingreso Familiar',
+        'household_vehicle': 'Vehículo Familiar',
+        'submit': 'Enviar',
+        'status': 'Estado',
+        'status_note': 'Los estados aparecen en 2 segundos',
+        'back_to_programs': 'Volver a Programas',
+        'summer_art_camp': 'Campamento de Arte de Verano',
+        'robotics_club': 'Club de Robótica',
+        'leadership_program': 'Programa de Liderazgo',
+        'description': 'Descripción',
+        'age_group': 'Grupo de Edad',
+        'location': 'Ubicación',
+        'duration': 'Duración',
+        'schedule': 'Horario',
+        'eligibility': 'Elegibilidad',
+        'contact': 'Contacto',
+        'loading': 'Cargando...',
+        'registration_message': 'El estado de {{childName}} es {{status}}',
+        'please_select_program': 'Por favor, selecciona un programa antes de enviar.',
+        'registration_failed': 'El registro falló. Por favor, intenta de nuevo.'
+      }
+    }
+  },
+  lng: 'en',
+  fallbackLng: 'en',
+});
+
+export default i18n;

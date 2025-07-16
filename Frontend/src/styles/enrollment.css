@@ -1,0 +1,61 @@
+.enrollment-container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #26a69a;
+  color: white;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.step {
+  margin-bottom: 20px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.submit-btn {
+  background-color: #26a69a;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.status-confirmed { color: green; }
+.status-waitlisted { color: orange; }
+.status-rejected { color: red; }
+
+.note {
+  font-size: 0.8em;
+  color: #666;
+}
+
+.back-btn {
+  display: block;
+  margin-top: 10px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #78909c;
+  color: white;
+  border-radius: 5px;
+}
+
+@media (max-width: 600px) {
+  .input-field {
+    width: 100%;
+  }
+}
