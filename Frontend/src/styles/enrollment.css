@@ -59,3 +59,125 @@
     width: 100%;
   }
 }
+
+.status-btn {
+  padding: 8px 16px;
+  background-color: #3498db;    /* soft blue */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  align-self: flex-start;       /* if inside flex container */
+}
+
+.status-btn:hover {
+  background-color: #2980b9;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #26a69a;
+  color: white;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.header-right {
+  display: flex;
+  gap: 10px;  /* space between button and select */
+  align-items: center;
+}
+
+
+.header select {
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: none;
+  background-color: #ffffff;
+  color: #333;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.header select:hover {
+  background-color: #f0f0f0;
+}
+
+.header select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(38,166,154,0.4); /* subtle teal border on focus */
+}
+
+/* new  */
+
+.input-field {
+  width: 90%;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-field:focus {
+  border-color: #26a69a; /* teal border on focus */
+  box-shadow: 0 0 0 3px rgba(38,166,154,0.2); /* subtle glow */
+  outline: none;
+}
+
+/* Media query for tablet and mobile: width becomes 100% */
+@media (min-width: 1024px) {   /* tablets and below */
+  .input-field {
+    width: 98%;
+  }
+}
+
+.p-not-found{
+  color: #ff5722; /* soft red */
+  font-size: 16px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.gender-select {
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+/* Focus effect */
+.gender-select:focus {
+  border-color: #26a69a;
+  box-shadow: 0 0 0 3px rgba(38,166,154,0.2);
+  outline: none;
+}
+
+/* Responsive widths */
+@media (max-width: 600px) {
+  .gender-select {
+    width: 100%;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1023px) {
+  .gender-select {
+    width: 80%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gender-select {
+    width: 100%;
+  }
+}

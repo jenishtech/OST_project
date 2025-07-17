@@ -84,3 +84,64 @@
   font-weight: bold;
   color: #26a69a;
 }
+
+
+
+.header select {
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: none;
+  background-color: #ffffff;
+  color: #333;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.header select:hover {
+  background-color: #f0f0f0;
+}
+
+.header select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(38,166,154,0.4); /* subtle teal highlight */
+}
+
+.p-not-found {
+  color: #ff5722; /* soft red */
+  font-size: 16px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+
+/* Default - already covers mobile */
+.search-bar {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Tablet: slightly larger font and padding */
+@media (min-width: 600px) {
+  .search-bar {
+    font-size: 15px;
+    padding: 12px 14px;
+  }
+}
+
+/* Large screens: keep max-width so it doesn't stretch too wide */
+@media (min-width: 1024px) {
+  .search-bar {
+    max-width: 500px;   /* keeps it nicely centered and not too wide */
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+    padding: 14px 16px;
+  }
+}

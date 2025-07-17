@@ -1,6 +1,6 @@
-import { Route, Routes, Link } from 'react-router-dom';
-import EnrollmentRegister from '../components/EnrollmentRegister';
-import EnrollmentStatus from '../components/EnrollmentStatus';
+import { Route, Routes, Link } from "react-router-dom";
+import EnrollmentRegister from "../components/EnrollmentRegister";
+import EnrollmentStatus from "../components/EnrollmentStatus";
 
 function Enrollment() {
   return (

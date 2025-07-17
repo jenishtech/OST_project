@@ -66,20 +66,25 @@ function LocatorSearch() {
           ))}
         </select>
       </div>
+
       <div className="program-list">
-        {programs.map(program => (
-          <div key={program._id} className="program-card">
-            <h3>{program.name}</h3>
-            <p> <span className='p-lable'>{t('age_group')}:</span> {program.ageGroup}</p>
-            <p> <span className='p-lable'>{t('location')}:</span> {program.location}</p>
-            <p> <span className='p-lable'> {t('duration')}: </span> {program.duration}</p>
-            <p> <span className='p-lable'>{t('schedule')}:</span> {program.schedule}</p>
-
-            <Link to={`/locator/details/${program._id}`} className="view-details">{t('view_details')}</Link>
-
-          </div>
-        ))}
+        {programs.length > 0 ? (
+          programs.map(program => (
+            <div key={program._id} className="program-card">
+              <h3>{program.name}</h3>
+              <p> <span className='p-lable'>{t('age_group')}:</span> {program.ageGroup}</p>
+              <p> <span className='p-lable'>{t('location')}:</span> {program.location}</p>
+              <p> <span className='p-lable'> {t('duration')}: </span> {program.duration}</p>
+              <p> <span className='p-lable'>{t('schedule')}:</span> {program.schedule}</p>
+              <Link to={`/locator/details/${program._id}`} className="view-details">{t('view_details')}</Link>
+            </div>
+          ))
+        ) : (
+          <p className="p-not-found">*{t('no_programs_available')}</p>
+        )}
       </div>
+
+
     </div>
   );
 }

@@ -11,11 +11,23 @@ function LocatorDetails() {
 
   useEffect(() => {
     axios.get(`http://localhost:5000/api/programs/${id}`, { params: { lang: i18n.language } })
-      .then(res => setProgram(res.data))
-      .catch(err => console.log(err));
+      .then(res => {
+        if (res.data) {
+          setProgram(res.data);
+        } else {
+          setProgram(false); // mark as not found
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        setProgram(false); // on error, treat as not found
+      });
   }, [id, i18n.language]);
 
-  if (!program) return <div>{t('loading')}</div>;
+
+  if (program === null) return <div>{t('loading')}</div>;
+  if (program === false) return <p className="p-not-found">*{t('no_programs_available')}</p>;
+
 
   return (
     <div className="locator-container">

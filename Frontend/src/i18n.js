@@ -40,7 +40,14 @@ i18n.use(initReactI18next).init({
         'registration_message': '{{childName}} status is {{status}}',
         'please_select_program': 'Please select a program before submitting.',
         'registration_failed': 'Registration failed. Please try again.',
-        'selected_programs': 'Selected Programs' // New key
+        'selected_programs': 'Selected Programs',
+        'already_registered': 'Already registered',
+        'view_status': 'View Status',
+        'no_programs_available': 'There are currently no programs available.',
+        'male': 'Male',
+        'female': 'Female'
+
+
       }
     },
     es: {
@@ -80,7 +87,14 @@ i18n.use(initReactI18next).init({
         'registration_message': 'El estado de {{childName}} es {{status}}',
         'please_select_program': 'Por favor, selecciona un programa antes de enviar.',
         'registration_failed': 'El registro falló. Por favor, intenta de nuevo.',
-        'selected_programs': 'Programas Seleccionados' // New key
+        'selected_programs': 'Programas Seleccionados',
+        'already_registered': 'Ya inscrito',
+        'view_status': 'Ver Estado',
+        'no_programs_available': 'Actualmente no hay programas disponibles.',
+        'male': 'Masculino',
+        'female': 'Femenino'
+
+
       }
     }
   },
