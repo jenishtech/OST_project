@@ -1,4 +1,6 @@
+// models/program.js
 const mongoose = require('mongoose');
+
 const programSchema = new mongoose.Schema({
   name: { en: String, es: String },
   ageGroup: { en: String, es: String },
@@ -8,6 +10,8 @@ const programSchema = new mongoose.Schema({
   description: { en: String, es: String },
   contact: { en: String, es: String },
   eligibility: { en: String, es: String },
+  zip: { type: String, required: true },
   lastUpdated: { type: Date, default: Date.now }
 });
+
 module.exports = mongoose.model('Program', programSchema);

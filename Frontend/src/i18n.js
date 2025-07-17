@@ -24,7 +24,7 @@ i18n.use(initReactI18next).init({
         'household_vehicle': 'Household Vehicle',
         'submit': 'Submit',
         'status': 'Status',
-        'status_note': 'Status updates appear within 2 seconds',
+        'status_note': 'Status updates appear within 5 seconds',
         'back_to_programs': 'Back to Programs',
         'summer_art_camp': 'Summer Art Camp',
         'robotics_club': 'Robotics Club',
@@ -45,8 +45,11 @@ i18n.use(initReactI18next).init({
         'view_status': 'View Status',
         'no_programs_available': 'There are currently no programs available.',
         'male': 'Male',
-        'female': 'Female'
-
+        'female': 'Female',
+        "no_registrations_found": "No registrations found.",
+        "yes": "Yes",
+        "no": "No",
+        "multiple": "Multiple",
 
       }
     },
@@ -71,7 +74,7 @@ i18n.use(initReactI18next).init({
         'household_vehicle': 'Vehículo Familiar',
         'submit': 'Enviar',
         'status': 'Estado',
-        'status_note': 'Los estados aparecen en 2 segundos',
+        'status_note': 'Los estados aparecen en 5 segundos',
         'back_to_programs': 'Volver a Programas',
         'summer_art_camp': 'Campamento de Arte de Verano',
         'robotics_club': 'Club de Robótica',
@@ -92,7 +95,11 @@ i18n.use(initReactI18next).init({
         'view_status': 'Ver Estado',
         'no_programs_available': 'Actualmente no hay programas disponibles.',
         'male': 'Masculino',
-        'female': 'Femenino'
+        'female': 'Femenino',
+        "no_registrations_found": "No se encontraron registros.",
+        "yes": "Sí",
+        "no": "No",
+        "multiple": "Múltiples",
 
 
       }

@@ -64,11 +64,11 @@ function EnrollmentStatus() {
         {registrations.length > 0 ? (
           registrations.map((registration, idx) =>
             registration.programs.map((p) => (
-              <li key={p.programId._id + idx}>
+              <li key={p.programId?._id + idx}>
                 {p.status === "Confirmed" && "✅"}
                 {p.status === "Waitlisted" && "⚠️"}
                 {p.status === "Rejected" && "❌"}
-                {getField(p.programId?.name)} — {p.status}
+                {getField(p.programId.name)} — {p.status}
               </li>
             ))
           )

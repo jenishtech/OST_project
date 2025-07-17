@@ -1,0 +1,223 @@
+[
+  {
+    "name": { "en": "Summer Coding Camp", "es": "Campamento de Codificación de Verano" },
+    "ageGroup": { "en": "10-15", "es": "10-15" },
+    "location": { "en": "Community Center A", "es": "Centro Comunitario A" },
+    "duration": { "en": "6 weeks", "es": "6 semanas" },
+    "schedule": { "en": "Mon-Fri, 9am-12pm", "es": "Lun-Vie, 9am-12pm" },
+    "description": { "en": "Learn programming basics with fun projects.", "es": "Aprende programación con proyectos divertidos." },
+    "contact": { "en": "contact@codingcamp.com", "es": "contacto@codingcamp.com" },
+    "eligibility": { "en": "Beginner level, ages 10-15", "es": "Nivel principiante, edades 10-15" },
+    "zip": "10001"
+  },
+  {
+    "name": { "en": "Art Workshop", "es": "Taller de Arte" },
+    "ageGroup": { "en": "8-12", "es": "8-12" },
+    "location": { "en": "Art Studio B", "es": "Estudio de Arte B" },
+    "duration": { "en": "4 weeks", "es": "4 semanas" },
+    "schedule": { "en": "Sat-Sun, 10am-1pm", "es": "Sáb-Dom, 10am-1pm" },
+    "description": { "en": "Explore painting and drawing techniques.", "es": "Explora técnicas de pintura y dibujo." },
+    "contact": { "en": "info@artworkshop.com", "es": "info@tallerdearte.com" },
+    "eligibility": { "en": "No experience required", "es": "No se requiere experiencia" },
+    "zip": "10002"
+  },
+  {
+    "name": { "en": "Robotics Club", "es": "Club de Robótica" },
+    "ageGroup": { "en": "12-17", "es": "12-17" },
+    "location": { "en": "Tech Center C", "es": "Centro Tecnológico C" },
+    "duration": { "en": "8 weeks", "es": "8 semanas" },
+    "schedule": { "en": "Wed-Fri, 4pm-6pm", "es": "Mié-Vie, 4pm-6pm" },
+    "description": { "en": "Build and program your own robots.", "es": "Construye y programa tus propios robots." },
+    "contact": { "en": "robotics@techcenter.com", "es": "robotica@centrotech.com" },
+    "eligibility": { "en": "Intermediate level", "es": "Nivel intermedio" },
+    "zip": "10003"
+  },
+  {
+    "name": { "en": "Dance Academy", "es": "Academia de Baile" },
+    "ageGroup": { "en": "5-10", "es": "5-10" },
+    "location": { "en": "Dance Hall D", "es": "Salón de Baile D" },
+    "duration": { "en": "12 weeks", "es": "12 semanas" },
+    "schedule": { "en": "Tue-Thu, 5pm-7pm", "es": "Mar-Jue, 5pm-7pm" },
+    "description": { "en": "Learn modern and classical dance styles.", "es": "Aprende estilos de danza moderna y clásica." },
+    "contact": { "en": "dance@academy.com", "es": "baile@academia.com" },
+    "eligibility": { "en": "All skill levels", "es": "Todos los niveles" },
+    "zip": "10001"
+  },
+  {
+    "name": { "en": "Chess Training", "es": "Entrenamiento de Ajedrez" },
+    "ageGroup": { "en": "8-16", "es": "8-16" },
+    "location": { "en": "Library E", "es": "Biblioteca E" },
+    "duration": { "en": "10 weeks", "es": "10 semanas" },
+    "schedule": { "en": "Sat, 2pm-5pm", "es": "Sáb, 2pm-5pm" },
+    "description": { "en": "Improve your chess strategies.", "es": "Mejora tus estrategias de ajedrez." },
+    "contact": { "en": "chess@librarye.com", "es": "ajedrez@bibliotecae.com" },
+    "eligibility": { "en": "All levels welcome", "es": "Todos los niveles bienvenidos" },
+    "zip": "10002"
+  },
+  {
+    "name": { "en": "Youth Soccer League", "es": "Liga Juvenil de Fútbol" },
+    "ageGroup": { "en": "9-14", "es": "9-14" },
+    "location": { "en": "Stadium F", "es": "Estadio F" },
+    "duration": { "en": "14 weeks", "es": "14 semanas" },
+    "schedule": { "en": "Sat-Sun, 8am-11am", "es": "Sáb-Dom, 8am-11am" },
+    "description": { "en": "Play competitive soccer in a friendly league.", "es": "Juega fútbol competitivo en una liga amistosa." },
+    "contact": { "en": "soccer@league.com", "es": "futbol@liga.com" },
+    "eligibility": { "en": "Open to all skill levels", "es": "Abierto a todos los niveles" },
+    "zip": "10003"
+  },
+  {
+    "name": { "en": "Creative Writing Workshop", "es": "Taller de Escritura Creativa" },
+    "ageGroup": { "en": "13-18", "es": "13-18" },
+    "location": { "en": "Library G", "es": "Biblioteca G" },
+    "duration": { "en": "5 weeks", "es": "5 semanas" },
+    "schedule": { "en": "Thu, 5pm-7pm", "es": "Jue, 5pm-7pm" },
+    "description": { "en": "Write short stories and poetry with peers.", "es": "Escribe cuentos y poesía con tus compañeros." },
+    "contact": { "en": "writing@libraryg.com", "es": "escritura@bibliotecag.com" },
+    "eligibility": { "en": "All skill levels welcome", "es": "Todos los niveles bienvenidos" },
+    "zip": "10001"
+  },
+  {
+    "name": { "en": "Cooking Basics", "es": "Cocina Básica" },
+    "ageGroup": { "en": "15-20", "es": "15-20" },
+    "location": { "en": "Kitchen H", "es": "Cocina H" },
+    "duration": { "en": "3 weeks", "es": "3 semanas" },
+    "schedule": { "en": "Sun, 11am-2pm", "es": "Dom, 11am-2pm" },
+    "description": { "en": "Learn to cook healthy meals.", "es": "Aprende a cocinar comidas saludables." },
+    "contact": { "en": "cook@kitchenh.com", "es": "cocina@cocinah.com" },
+    "eligibility": { "en": "No prior experience needed", "es": "No se necesita experiencia previa" },
+    "zip": "10002"
+  },
+  {
+    "name": { "en": "Music Band Camp", "es": "Campamento de Banda Musical" },
+    "ageGroup": { "en": "13-18", "es": "13-18" },
+    "location": { "en": "Music Hall I", "es": "Salón de Música I" },
+    "duration": { "en": "5 weeks", "es": "5 semanas" },
+    "schedule": { "en": "Mon-Fri, 3pm-6pm", "es": "Lun-Vie, 3pm-6pm" },
+    "description": { "en": "Play and perform as part of a band.", "es": "Toca y actúa como parte de una banda." },
+    "contact": { "en": "music@bandcamp.com", "es": "musica@campamentobanda.com" },
+    "eligibility": { "en": "Basic instrument skills required", "es": "Se requieren conocimientos básicos de instrumento" },
+    "zip": "10003"
+  },
+  {
+    "name": { "en": "Math Tutoring", "es": "Tutoría de Matemáticas" },
+    "ageGroup": { "en": "9-14", "es": "9-14" },
+    "location": { "en": "Education Center J", "es": "Centro Educativo J" },
+    "duration": { "en": "7 weeks", "es": "7 semanas" },
+    "schedule": { "en": "Tue-Fri, 4pm-6pm", "es": "Mar-Vie, 4pm-6pm" },
+    "description": { "en": "Strengthen math fundamentals.", "es": "Refuerza las bases matemáticas." },
+    "contact": { "en": "math@tutoring.com", "es": "matematicas@tutoria.com" },
+    "eligibility": { "en": "Students struggling in math", "es": "Estudiantes con dificultades en matemáticas" },
+    "zip": "10001"
+  }
+,
+  {
+    "name": { "en": "Photography Basics", "es": "Fundamentos de Fotografía" },
+    "ageGroup": { "en": "14-18", "es": "14-18" },
+    "location": { "en": "Photo Studio K", "es": "Estudio Fotográfico K" },
+    "duration": { "en": "4 weeks", "es": "4 semanas" },
+    "schedule": { "en": "Wed-Sat, 2pm-4pm", "es": "Mié-Sáb, 2pm-4pm" },
+    "description": { "en": "Learn to capture stunning photos.", "es": "Aprende a capturar fotos impresionantes." },
+    "contact": { "en": "photo@studiok.com", "es": "foto@estudiok.com" },
+    "eligibility": { "en": "Beginner level, camera required", "es": "Nivel principiante, se requiere cámara" },
+    "zip": "10002"
+  },
+  {
+    "name": { "en": "Science Explorers", "es": "Exploradores de Ciencias" },
+    "ageGroup": { "en": "7-11", "es": "7-11" },
+    "location": { "en": "Science Lab L", "es": "Laboratorio de Ciencias L" },
+    "duration": { "en": "6 weeks", "es": "6 semanas" },
+    "schedule": { "en": "Mon-Wed, 10am-12pm", "es": "Lun-Mié, 10am-12pm" },
+    "description": { "en": "Fun experiments in biology and chemistry.", "es": "Experimentos divertidos en biología y química." },
+    "contact": { "en": "science@labl.com", "es": "ciencia@laboratoriol.com" },
+    "eligibility": { "en": "Curious kids, no experience needed", "es": "Niños curiosos, no se necesita experiencia" },
+    "zip": "10003"
+  },
+  {
+    "name": { "en": "Basketball Clinic", "es": "Clínica de Baloncesto" },
+    "ageGroup": { "en": "10-16", "es": "10-16" },
+    "location": { "en": "Gym M", "es": "Gimnasio M" },
+    "duration": { "en": "8 weeks", "es": "8 semanas" },
+    "schedule": { "en": "Sat-Sun, 9am-11am", "es": "Sáb-Dom, 9am-11am" },
+    "description": { "en": "Develop basketball skills and teamwork.", "es": "Desarrolla habilidades de baloncesto y trabajo en equipo." },
+    "contact": { "en": "basketball@gymm.com", "es": "baloncesto@gimnasiom.com" },
+    "eligibility": { "en": "All skill levels welcome", "es": "Todos los niveles bienvenidos" },
+    "zip": "10001"
+  },
+  {
+    "name": { "en": "Drama Club", "es": "Club de Teatro" },
+    "ageGroup": { "en": "12-18", "es": "12-18" },
+    "location": { "en": "Theater N", "es": "Teatro N" },
+    "duration": { "en": "10 weeks", "es": "10 semanas" },
+    "schedule": { "en": "Tue-Thu, 4pm-6pm", "es": "Mar-Jue, 4pm-6pm" },
+    "description": { "en": "Act in plays and learn stagecraft.", "es": "Actúa en obras y aprende técnicas teatrales." },
+    "contact": { "en": "drama@theatern.com", "es": "teatro@teatron.com" },
+    "eligibility": { "en": "No acting experience required", "es": "No se requiere experiencia en actuación" },
+    "zip": "10002"
+  },
+  {
+    "name": { "en": "Gardening Club", "es": "Club de Jardinería" },
+    "ageGroup": { "en": "8-14", "es": "8-14" },
+    "location": { "en": "Community Garden O", "es": "Jardín Comunitario O" },
+    "duration": { "en": "12 weeks", "es": "12 semanas" },
+    "schedule": { "en": "Sat, 10am-12pm", "es": "Sáb, 10am-12pm" },
+    "description": { "en": "Learn to grow vegetables and flowers.", "es": "Aprende a cultivar vegetales y flores." },
+    "contact": { "en": "garden@communityo.com", "es": "jardin@comunitarioo.com" },
+    "eligibility": { "en": "All levels, tools provided", "es": "Todos los niveles, herramientas proporcionadas" },
+    "zip": "10003"
+  },
+  {
+    "name": { "en": "Digital Art Camp", "es": "Campamento de Arte Digital" },
+    "ageGroup": { "en": "13-17", "es": "13-17" },
+    "location": { "en": "Design Studio P", "es": "Estudio de Diseño P" },
+    "duration": { "en": "5 weeks", "es": "5 semanas" },
+    "schedule": { "en": "Mon-Fri, 1pm-3pm", "es": "Lun-Vie, 1pm-3pm" },
+    "description": { "en": "Create digital illustrations and animations.", "es": "Crea ilustraciones y animaciones digitales." },
+    "contact": { "en": "design@studiop.com", "es": "diseno@estudiop.com" },
+    "eligibility": { "en": "Basic computer skills required", "es": "Se requieren habilidades básicas de computadora" },
+    "zip": "10001"
+  },
+  {
+    "name": { "en": "Swimming Lessons", "es": "Clases de Natación" },
+    "ageGroup": { "en": "6-12", "es": "6-12" },
+    "location": { "en": "Pool Q", "es": "Piscina Q" },
+    "duration": { "en": "8 weeks", "es": "8 semanas" },
+    "schedule": { "en": "Tue-Thu, 3pm-5pm", "es": "Mar-Jue, 3pm-5pm" },
+    "description": { "en": "Learn to swim with confidence.", "es": "Aprende a nadar con confianza." },
+    "contact": { "en": "swim@poolq.com", "es": "natacion@piscinaq.com" },
+    "eligibility": { "en": "Beginner to intermediate levels", "es": "Niveles principiante a intermedio" },
+    "zip": "10002"
+  },
+  {
+    "name": { "en": "Debate Team", "es": "Equipo de Debate" },
+    "ageGroup": { "en": "14-18", "es": "14-18" },
+    "location": { "en": "School R", "es": "Escuela R" },
+    "duration": { "en": "10 weeks", "es": "10 semanas" },
+    "schedule": { "en": "Wed-Fri, 5pm-7pm", "es": "Mié-Vie, 5pm-7pm" },
+    "description": { "en": "Hone public speaking and critical thinking.", "es": "Perfecciona el habla pública y el pensamiento crítico." },
+    "contact": { "en": "debate@schoolr.com", "es": "debate@escuelar.com" },
+    "eligibility": { "en": "Interest in debate required", "es": "Se requiere interés en el debate" },
+    "zip": "10003"
+  },
+  {
+    "name": { "en": "Yoga for Kids", "es": "Yoga para Niños" },
+    "ageGroup": { "en": "7-13", "es": "7-13" },
+    "location": { "en": "Yoga Studio S", "es": "Estudio de Yoga S" },
+    "duration": { "en": "6 weeks", "es": "6 semanas" },
+    "schedule": { "en": "Sat-Sun, 11am-12pm", "es": "Sáb-Dom, 11am-12pm" },
+    "description": { "en": "Learn yoga poses and mindfulness.", "es": "Aprende posturas de yoga y atención plena." },
+    "contact": { "en": "yoga@studios.com", "es": "yoga@estudios.com" },
+    "eligibility": { "en": "No experience needed", "es": "No se necesita experiencia" },
+    "zip": "10001"
+  },
+  {
+    "name": { "en": "Animation Workshop", "es": "Taller de Animación" },
+    "ageGroup": { "en": "12-16", "es": "12-16" },
+    "location": { "en": "Media Lab T", "es": "Laboratorio de Medios T" },
+    "duration": { "en": "7 weeks", "es": "7 semanas" },
+    "schedule": { "en": "Mon-Wed, 3pm-5pm", "es": "Lun-Mié, 3pm-5pm" },
+    "description": { "en": "Create short animated films.", "es": "Crea cortometrajes animados." },
+    "contact": { "en": "animation@labt.com", "es": "animacion@laboratoriot.com" },
+    "eligibility": { "en": "Basic computer skills required", "es": "Se requieren habilidades básicas de computadora" },
+    "zip": "10002"
+  }
+]

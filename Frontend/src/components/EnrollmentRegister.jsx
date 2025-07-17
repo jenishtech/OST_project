@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
 import "../styles/enrollment.css";
@@ -7,10 +7,11 @@ import "../styles/enrollment.css";
 function EnrollmentRegister() {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [programs, setPrograms] = useState([]);
-  const [selectedPrograms, setSelectedPrograms] = useState([]); // multiple
-  const [alreadyRegistered, setAlreadyRegistered] = useState([]); // program IDs already registered
+  const [selectedPrograms, setSelectedPrograms] = useState([]);
+  const [alreadyRegistered, setAlreadyRegistered] = useState([]);
   const [formData, setFormData] = useState({
     childName: "",
     age: "",
@@ -24,25 +25,23 @@ function EnrollmentRegister() {
   });
   const [error, setError] = useState("");
 
+  const zip = localStorage.getItem('zip') || '';
+
   useEffect(() => {
-    // Fetch available programs
+    // Fetch programs
     axios
-      .get("http://localhost:5000/api/programs", {
-        params: { lang: i18n.language },
-      })
+      .get("http://localhost:5000/api/programs", { params: { lang: i18n.language, zip } })
       .then((res) => setPrograms(res.data))
       .catch((err) => console.log(err));
 
-    // Load already registered programs from localStorage
+    // Load already registered IDs first
     const regIds = JSON.parse(localStorage.getItem("registrationIds") || "[]");
 
     if (regIds.length > 0) {
       Promise.all(
         regIds.map((id) =>
           axios
-            .get(`http://localhost:5000/api/status/${id}`, {
-              params: { lang: i18n.language },
-            })
+            .get(`http://localhost:5000/api/status/${id}`, { params: { lang: i18n.language } })
             .then((res) => res.data)
             .catch(() => null)
         )
@@ -52,9 +51,26 @@ function EnrollmentRegister() {
           reg.programs.map((p) => p.programId._id)
         );
         setAlreadyRegistered(allProgramIds);
+
+        // After loading already registered, check if we got programId from location
+        const programId = location.state?.programId;
+        if (programId && !allProgramIds.includes(programId)) {
+          // Only add if not already registered
+          setSelectedPrograms((prev) =>
+            prev.includes(programId) ? prev : [...prev, programId]
+          );
+        }
       });
+    } else {
+      // no registered programs yet
+      const programId = location.state?.programId;
+      if (programId) {
+        setSelectedPrograms((prev) =>
+          prev.includes(programId) ? prev : [...prev, programId]
+        );
+      }
     }
-  }, [i18n.language]);
+  }, [i18n.language, location.state]); // do not depend on alreadyRegistered here
 
   const handleCheckboxChange = (programId) => {
     setSelectedPrograms((prev) =>
@@ -82,8 +98,10 @@ function EnrollmentRegister() {
       return;
     }
 
+    const uniqueProgramIds = [...new Set(selectedPrograms)];
+
     const payload = {
-      programIds: selectedPrograms,
+      programIds: uniqueProgramIds,
       childName: wrapMultiLang(formData.childName),
       age: formData.age,
       parentName: wrapMultiLang(formData.parentName),
@@ -98,11 +116,8 @@ function EnrollmentRegister() {
     axios
       .post("http://localhost:5000/api/register", payload)
       .then((res) => {
-        // Add new registration _id to localStorage
-        const existing = JSON.parse(
-          localStorage.getItem("registrationIds") || "[]"
-        );
-        const updated = [...existing, res.data._id];
+        const existing = JSON.parse(localStorage.getItem("registrationIds") || "[]");
+        const updated = [...new Set([...existing, res.data._id])];
         localStorage.setItem("registrationIds", JSON.stringify(updated));
         navigate("/enrollment/status");
       })
@@ -114,19 +129,14 @@ function EnrollmentRegister() {
 
   return (
     <div className="enrollment-container">
+      {/* header */}
       <div className="header">
         <span>Logo</span>
         <div className="header-right">
-          <button
-            className="status-btn"
-            onClick={() => navigate("/enrollment/status")}
-          >
+          <button className="status-btn" onClick={() => navigate("/enrollment/status")}>
             {t("view_status")}
           </button>
-          <select
-            onChange={(e) => i18n.changeLanguage(e.target.value)}
-            value={i18n.language}
-          >
+          <select onChange={(e) => i18n.changeLanguage(e.target.value)} value={i18n.language}>
             <option value="en">EN</option>
             <option value="es">ES</option>
           </select>
@@ -135,14 +145,12 @@ function EnrollmentRegister() {
 
       <h3>{t("register_programs")}</h3>
 
+      {/* Step: select programs */}
       <div className="step">
         <h4>{t("select_programs")}</h4>
         {programs.length > 0 ? (
           programs.map((program) => (
-            <label
-              key={program._id}
-              style={{ display: "block", marginBottom: "4px" }}
-            >
+            <label key={program._id} style={{ display: "block", marginBottom: "4px" }}>
               <input
                 type="checkbox"
                 checked={selectedPrograms.includes(program._id)}
@@ -160,83 +168,29 @@ function EnrollmentRegister() {
         ) : (
           <p className="p-not-found">*{t("no_programs_available")}</p>
         )}
-
-        {error && (
-          <p style={{ color: "red" }} className="error">
-            *{error}
-          </p>
-        )}
+        {error && <p style={{ color: "red" }} className="error">*{error}</p>}
       </div>
 
-      {/* form  */}
+      {/* Step: user info */}
       <div className="step">
         <h4>{t("your_information")}</h4>
         <form onSubmit={handleSubmit}>
-          <input
-            name="childName"
-            placeholder={t("child_name")}
-            onChange={handleChange}
-            className="input-field"
-          />
-          <input
-            name="age"
-            placeholder={t("age")}
-            onChange={handleChange}
-            className="input-field"
-          />
-          <input
-            name="parentName"
-            placeholder={t("parent_name")}
-            onChange={handleChange}
-            className="input-field"
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder={t("parent_email")}
-            onChange={handleChange}
-            className="input-field"
-          />
-          <input
-            name="emergencyContact"
-            placeholder={t("emergency_contact")}
-            onChange={handleChange}
-            className="input-field"
-          />
-          <input
-            name="primaryLanguage"
-            placeholder={t("primary_language")}
-            onChange={handleChange}
-            className="input-field"
-          />
-          <input
-            name="familyIncome"
-            placeholder={t("family_income")}
-            onChange={handleChange}
-            className="input-field"
-          />
-          <input
-            name="householdVehicle"
-            placeholder={t("household_vehicle")}
-            onChange={handleChange}
-            className="input-field"
-          />{" "}
-          <select
-            name="gender"
-            onChange={handleChange}
-            value={formData.gender}
-            className="gender-select"
-          >
+          <input name="childName" placeholder={t("child_name")} onChange={handleChange} className="input-field" />
+          <input name="age" placeholder={t("age")} onChange={handleChange} className="input-field" />
+          <input name="parentName" placeholder={t("parent_name")} onChange={handleChange} className="input-field" />
+          <input type="email" name="email" placeholder={t("parent_email")} onChange={handleChange} className="input-field" />
+          <input name="emergencyContact" placeholder={t("emergency_contact")} onChange={handleChange} className="input-field" />
+          <input name="primaryLanguage" placeholder={t("primary_language")} onChange={handleChange} className="input-field" />
+          <input name="familyIncome" placeholder={t("family_income")} onChange={handleChange} className="input-field" />
+          <input name="householdVehicle" placeholder={t("household_vehicle")} onChange={handleChange} className="input-field" />
+          <select name="gender" onChange={handleChange} value={formData.gender} className="gender-select">
             <option value="">{t("gender")}</option>
             <option value="Male">{t("male")}</option>
             <option value="Female">{t("female")}</option>
           </select>
           <br />
-          <button type="submit" className="submit-btn">
-            {t("submit")}
-          </button>
+          <button type="submit" className="submit-btn">{t("submit")}</button>
         </form>
-        {/* {error && <p className="error">{error}</p>} */}
       </div>
     </div>
   );

@@ -15,19 +15,17 @@ function LocatorDetails() {
         if (res.data) {
           setProgram(res.data);
         } else {
-          setProgram(false); // mark as not found
+          setProgram(false);
         }
       })
       .catch(err => {
         console.log(err);
-        setProgram(false); // on error, treat as not found
+        setProgram(false);
       });
   }, [id, i18n.language]);
 
-
   if (program === null) return <div>{t('loading')}</div>;
   if (program === false) return <p className="p-not-found">*{t('no_programs_available')}</p>;
-
 
   return (
     <div className="locator-container">
@@ -46,12 +44,10 @@ function LocatorDetails() {
       <p> <span className='dl-span'>{t('schedule')}:</span> {program.schedule}</p>
       <p> <span className='dl-span'>{t('eligibility')}:</span> {program.eligibility}</p>
       <p> <span className='dl-span'>{t('contact')}:</span> {program.contact}</p>
-      <Link to="/enrollment" className="register-btn">{t('register_now')}</Link>
+      <Link to="/enrollment" state={{ programId: id }} className="register-btn">{t('register_now')}</Link>
       <Link to="/locator" className="back-btn">{t('back_to_search')}</Link>
     </div>
   );
 }
 
 export default LocatorDetails;
-
-
