@@ -62,7 +62,14 @@ function EnrollmentRegister() {
     };
 
     axios.post('http://localhost:5000/api/register', payload)
-      .then(res => navigate('/enrollment/status', { state: { registrationId: res.data._id } }))
+      .then(res => {
+          // load existing IDs
+          const existing = JSON.parse(localStorage.getItem('registrationIds') || '[]');
+          // add new _id
+          const updated = [...existing, res.data._id];
+          localStorage.setItem('registrationIds', JSON.stringify(updated));
+          navigate('/enrollment/status');
+        })
       .catch(err => {
         console.log(err);
         setError(t('registration_failed'));

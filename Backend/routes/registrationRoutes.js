@@ -102,6 +102,7 @@ router.post('/register', async (req, res) => {
 // Status route
 router.get('/status/:id', async (req, res) => {
   const { lang = 'en' } = req.query;
+  console.log('Fetching status for registration ID:', req.params.id);
   const registration = await Registration.findById(req.params.id).populate('programs.programId');
   if (!registration) return res.status(404).json({ error: 'Not found' });
 
