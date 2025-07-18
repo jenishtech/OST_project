@@ -31,12 +31,8 @@ router.post('/register', async (req, res) => {
   });
   await registration.save();
 
-  // Simulate real-time status update after 2 seconds (for demo)
-  // setTimeout(async () => {
-    // registration.status = ['Confirmed', 'Waitlisted', 'Rejected'][Math.floor(Math.random() * 3)];
-    // await registration.save();
     res.json(registration);
-  // }, 1000);
+  
 });
 
 // Status route

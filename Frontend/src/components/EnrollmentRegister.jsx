@@ -4,6 +4,8 @@ import { useTranslation } from "react-i18next";
 import axios from "axios";
 import "../styles/enrollment.css";
 
+const API = import.meta.env.VITE_API_URL;
+
 function EnrollmentRegister() {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
@@ -30,7 +32,7 @@ function EnrollmentRegister() {
   useEffect(() => {
     // Fetch programs
     axios
-      .get("http://localhost:5000/api/programs", { params: { lang: i18n.language, zip } })
+      .get(`${API}/programs`, { params: { lang: i18n.language, zip } })
       .then((res) => setPrograms(res.data))
       .catch((err) => console.log(err));
 
@@ -41,7 +43,7 @@ function EnrollmentRegister() {
       Promise.all(
         regIds.map((id) =>
           axios
-            .get(`http://localhost:5000/api/status/${id}`, { params: { lang: i18n.language } })
+            .get(`${API}/status/${id}`, { params: { lang: i18n.language } })
             .then((res) => res.data)
             .catch(() => null)
         )
@@ -114,7 +116,7 @@ function EnrollmentRegister() {
     };
 
     axios
-      .post("http://localhost:5000/api/register", payload)
+      .post(`${API}/register`, payload)
       .then((res) => {
         const existing = JSON.parse(localStorage.getItem("registrationIds") || "[]");
         const updated = [...new Set([...existing, res.data._id])];

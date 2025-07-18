@@ -4,6 +4,10 @@ import { useTranslation } from "react-i18next";
 import axios from "axios";
 import "../styles/locator.css";
 
+const API = import.meta.env.VITE_API_URL;
+
+// console.log("API URL:", API); // Check if the API URL is set correctly
+
 function LocatorSearch() {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
@@ -29,7 +33,7 @@ function LocatorSearch() {
 
     // fetch filter dropdowns filtered by zip
     axios
-      .get("http://localhost:5000/api/programs-filters", {
+      .get(`${API}/programs-filters`, {
         params: { lang: i18n.language, zip },
       })
       .then((res) => setUniqueFilters(res.data))
@@ -37,7 +41,7 @@ function LocatorSearch() {
 
     // fetch programs filtered by zip + other filters
     axios
-      .get("http://localhost:5000/api/programs", {
+      .get(`${API}/programs`, {
         params: { ...filters, lang: i18n.language, zip },
       })
       .then((res) => setPrograms(res.data))

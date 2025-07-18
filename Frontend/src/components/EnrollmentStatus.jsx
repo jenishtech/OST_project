@@ -4,6 +4,8 @@ import { useTranslation } from "react-i18next";
 import axios from "axios";
 import "../styles/enrollment.css";
 
+const API = import.meta.env.VITE_API_URL;
+
 function EnrollmentStatus() {
   const { t, i18n } = useTranslation();
   const [registrations, setRegistrations] = useState([]);
@@ -19,7 +21,7 @@ function EnrollmentStatus() {
     Promise.all(
       ids.map((id) =>
         axios
-          .get(`http://localhost:5000/api/status/${id}`, {
+          .get(`${API}/status/${id}`, {
             params: { lang: i18n.language },
           })
           .then((res) => ({ id, data: res.data }))

@@ -4,13 +4,16 @@ import { useTranslation } from 'react-i18next';
 import axios from 'axios';
 import '../styles/locator.css';
 
+const API = import.meta.env.VITE_API_URL;
+// console.log("API URL LD:", API); // Check if the API URL is set correctly
+
 function LocatorDetails() {
   const { id } = useParams();
   const { t, i18n } = useTranslation();
   const [program, setProgram] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/programs/${id}`, { params: { lang: i18n.language } })
+    axios.get(`${API}/programs/${id}`, { params: { lang: i18n.language } })
       .then(res => {
         if (res.data) {
           setProgram(res.data);
